@@ -5,11 +5,34 @@ public class StudiKasus1_22 {
 
         int hargaPerCup, jumlahCup, uangBayar, totalHarga, diskon, totalBayar, kembalian, kurang;
 
-        hargaPerCup = 18000;
-
-        System.out.println("Masukkan jumlah cup: ");
+        
+        System.out.print("Masukkan jumlah cup: ");
         jumlahCup = input.nextInt();
-        System.out.println("Masukkan uang bayar: ");
+        System.out.print("Masukkan uang bayar: ");
         uangBayar = input.nextInt();
+        
+        hargaPerCup = 18000;
+        totalHarga = jumlahCup * hargaPerCup;
+        diskon = 0;
+
+        if (totalHarga >= 100000) {
+            diskon = totalHarga * 10 / 100;
+        }
+
+        totalBayar = totalHarga - diskon;
+
+        System.out.println("Total harga: Rp." + totalHarga);
+        System.out.println("Diskon: Rp." + diskon);
+        System.out.println("Total bayar: Rp." + totalBayar);
+
+        if (uangBayar >= totalBayar) {
+            kembalian = uangBayar - totalBayar;
+            System.out.println("Kembalian: Rp." + kembalian);
+        } else {
+            kurang = totalBayar - uangBayar;
+            System.out.println("Uang tidak cukup, kurang Rp." + kurang);
+        }
+
+        input.close();
     }
 }
